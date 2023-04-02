@@ -2,6 +2,8 @@ const pool = new NostrTools.SimplePool()
 
 let relays = []
 
+
+
 let sub = pool.sub(
     [...relays, 'wss://nostr.688.org'],
     [
@@ -28,6 +30,7 @@ sub.on('event', event => {
             })
         }
         document.getElementById("content").replaceChildren()
+        
         identities().forEach(i => {
             document.getElementById("content").appendChild(makePerson(i))
         })
